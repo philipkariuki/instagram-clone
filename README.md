@@ -7,7 +7,7 @@ IP for Django module week 2 that involves creating a clone of the photo app Inst
 ## Description
 This app involves creating an Instagram clone using Django.
 
-Live link : https://phillmatic.herokuapp.com
+Live link : https://phillgram.herokuapp.com
 
 ## User Stories
 As a user, I would like to be able to do the following:
@@ -29,8 +29,8 @@ As a user, I would like to be able to do the following:
 ## Setup/Installation Requirements
 To clone this repo, open terminal in your desired folder then run:
 
-        $ git clone https://github.com/philipkariuki/django-photos/
-        $ cd /django-photos
+        $ git clone https://github.com/philipkariuki/instagram-clone/
+        $ cd /instagram-clone
 
 To create and activate the virtual environment and install pip:
 
@@ -49,7 +49,7 @@ To run the application, in your terminal:
         
 To run unittests:
 
-        $ python3.6 manage.py test philmatic
+        $ python3.6 manage.py test phillgram
 
 ## Known Bugs
 
