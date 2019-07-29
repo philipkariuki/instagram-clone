@@ -3,9 +3,7 @@ from . import views
 
 
 urlpatterns=[
-    url('^$',views.welcome),
-    url(r'^register/',views.register),
-    url(r'^ajax-sign-up$', views.ajaxsignup),
-    url(r'^ajax-login$', views.ajaxlogin)
+    url('^$',views.welcome,name = 'welcome'),
+    url(r'^register/',views.register,name ='register')
 ]
 
