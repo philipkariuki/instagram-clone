@@ -1,0 +1,1 @@
+web: gunicorn projectgram.wsgi --log-file -
