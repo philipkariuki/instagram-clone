@@ -21,9 +21,10 @@ As a user, I would like to be able to do the following:
 | Behaviour | Input | Output |
 | --------------- | :----------:| --------: |
 | Display all photos | On home page load | Loads all the available photos |
-| Zoom in on image | Click on a particular image | Single image zooms in |
-| View image details | Click on the particular image | Image descriptions display on top of and below the image |
-| Search for image | Enter image description in search box | Matching images return as search results else 0 matching images found |
+| Like image | Click on the like icon | Number of likes increases |
+| View user profile | Click on the user's profile name | Clicked user's profile information is displayed |
+| User registration | Fill required fields and click on register button | User's info is registered to the database and user is redirected to home page |
+| User login | Fill required fields and click on login button | User's info is confirmed with the database and user is redirected to home page, else if info doesn't match db records user is not able to login and access the home page |
 
 
 ## Setup/Installation Requirements
@@ -49,7 +50,7 @@ To run the application, in your terminal:
         
 To run unittests:
 
-        $ python3.6 manage.py test phillgram
+        $ python3.6 manage.py test instaclone
 
 ## Known Bugs
 
@@ -62,7 +63,8 @@ No known bugs
 * Python3.6
 * Pip
 * Django v 2.2.3
-* MDBootstrap
+* Bootstrap4
+* Django-registration v 3.0.1
 * Postgres Database
 * gunicorn
 
