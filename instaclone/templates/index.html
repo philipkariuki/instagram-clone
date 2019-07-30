@@ -1,4 +1,10 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
 {% load static %}
+
+{% block content %}
+{{block.super}}
+
 <!DOCTYPE html>
 <html>
 
@@ -13,31 +19,12 @@
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src={% static "assets/js/django-ajax.js" %}></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-        $('#go').click(function() {
-        $.post("ajax-login",
-    {
-        email: $("#email").val(),
-        password: $("#password").val()
-    },
-    function(data, status){
-    if (JSON.parse(data).Status == 'Success') {
-        window.location = '';
-    } else {
-        $('#errors').html("<span>" + JSON.parse(data).Message + "</span>")
-        $('#errors').css('display', 'block')
-    }
-    });
-        return false;
-        })
-    })
-    </script>
+    
 </head>
 
 <body>
     <div class="login-clean">
-        <form method="post">
+        <form method="post" action="{%url 'register'%}">
             {% csrf_token %}
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration">
@@ -57,3 +44,5 @@
 </body>
 
 </html>
+
+{% endblock %}

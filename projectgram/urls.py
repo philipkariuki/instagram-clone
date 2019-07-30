@@ -14,14 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.conf.urls import url,include
 from django.contrib.auth import views
 
+from registration.backends.simple.views import RegistrationView
+
+class RegView(RegistrationView):
+    def get_success_url(self, user):
+        success_url =  '/' 
+        return success_url
+
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url('admin/', admin.site.urls),
     url(r'^',include('instaclone.urls')),
-    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/register/$', RegView.as_view(), name='registration_register'),
+    url(r'^logout/$', views.logout, {"next_page": '/'})
 ]
