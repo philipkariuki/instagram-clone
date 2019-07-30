@@ -3,6 +3,8 @@ from .models import Uzer
 from .forms import UserSignup
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from registration.backends.simple.views import RegistrationView
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -27,11 +29,19 @@ def register(request):
 		return render(request, 'index.html')
 
 
-class RegView(RegistrationView):
-    def get_success_url(self, user):
-        success_url =  '/' 
-        return success_url
-
+@login_required(login_url='/accounts/login/')
+def new_post(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.editor = current_user
+            article.save()
+        return redirect('welcome')
+    else:
+        form = NewImageForm()
+    return render(request, 'new_post.html', {"form": form})
 
 
 
