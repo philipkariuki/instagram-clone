@@ -16,13 +16,17 @@
 
   {% block styles %}
     {% bootstrap_css %}
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="{% static 'css/basenews.css' %}"> -->
   {% endblock %}
 
 </head>
 
 <body>
+  {% include "navbar.html" %}
 
-  {% block content %}  {%endblock%}
+  {% block content %} <h1 class='text-center'>Phillgram</h1> {%endblock%}
 
 
   {% block scripts %}
@@ -33,3 +37,7 @@
 </body>
 
 </html>
+
+    
+
+   
