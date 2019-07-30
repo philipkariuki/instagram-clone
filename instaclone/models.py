@@ -25,8 +25,8 @@ class tags(models.Model):
 
 class Image(models.Model):
     image_name = models.CharField(max_length =60)
-    post = HTMLField()
-    editor = models.ForeignKey(User, on_delete=models.CASCADE)
+    caption = HTMLField()
+    poster = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
     post_image = models.ImageField(upload_to = 'userposts/', blank=True)

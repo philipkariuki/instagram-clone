@@ -16,10 +16,10 @@ from .models import Image
 
 
 
-class NewPostForm(forms.ModelForm):
+class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['editor', 'pub_date']
+        exclude = ['poster', 'pub_date']
         widgets = {
             'tags': forms.CheckboxSelectMultiple(),
         }

@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Uzer
+from .models import Image
 
 # Register your models here.
 
-class UzerAdmin(admin.ModelAdmin):
+class ImageAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Uzer)
+admin.site.register(Image)
 
