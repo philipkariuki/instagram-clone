@@ -32,5 +32,6 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^accounts/register/$', RegView.as_view(), name='registration_register'),
-    url(r'^logout/$', views.logout, {"next_page": '/'})
+    url(r'^logout/$', views.logout, {"next_page": '/'}),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]
