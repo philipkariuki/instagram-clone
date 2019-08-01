@@ -4,7 +4,7 @@
 # from urllib.request import urlopen
 # from random import randint
 from django import forms
-from .models import Image
+from .models import Image, tags, Profile
 
 
 
@@ -19,7 +19,12 @@ from .models import Image
 class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['poster', 'pub_date']
+        exclude = ['profile', 'pub_date']
         widgets = {
             'tags': forms.CheckboxSelectMultiple(),
         }
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['pub_date']

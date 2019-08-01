@@ -2,6 +2,7 @@
 {% load bootstrap4 %}
 {% block content %}
 {% load static %}
+{{block.super}}
 
 
 <!DOCTYPE html>
@@ -10,9 +11,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instapic</title>
-    <!-- <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}"> -->
-    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Clean.css' %}">
+    <title>Phillgram</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
 </head>
 
@@ -57,16 +57,19 @@
   </div>
 </div>
 
-<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-<!-- <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script> -->
 
+{% endblock %}
 
+{% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+{% endblock %}
 
 </body>
 
 </html>
 
-{% endblock %}
+
 
 
 

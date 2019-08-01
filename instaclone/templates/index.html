@@ -11,38 +11,52 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instapic</title>
+    <title>Phillgram</title>
     <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Clean.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
 
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src={% static "assets/js/django-ajax.js" %}></script>
     
 </head>
 
 <body>
-    <div class="login-clean">
-        <form method="post" action="{%url 'register'%}">
-            {% csrf_token %}
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration">
-                <div class="illustration"><img src="{% static 'assets/img/logo.jpg' %}"></div>
-            <div class="form-group" style="position:relative;">
-                <input class="form-control" id="email" type="email" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input class="form-control" id="password" type="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary btn-block" id="go" type="submit">Log In</button>
-            </div><a href="#" class="forgot">Forgot your email or password?</a></form>
+    
+    
+{% for image in theposts %}
+
+<div class="container">
+    <div class="card">
+        <div class="row">
+                <div class="col-lg-8">
+                    <img src="{{image.post_image.url}}" class="img-responsive" alt="">                    
+                </div>
+                <div class="col-lg-4">
+                        <h3><a href="{% url 'theposts' image.id %}">{{ image.image_name }}</a></h3>
+                        <p>{{image.caption|truncatechars:500 | safe}} </p>
+                </div>
+        </div>
+        <div class="card-footer">
+            <p><small>{{ image.pub_date }}</small></p>
+        </div>
     </div>
+</div>
+    
+    <hr>
+    {% endfor %}
+
+
+
+{% endblock %}
+
  
+
+{% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+{% endblock %}
+
 
 </body>
 
-</html>
 
-{% endblock %}
+
+</html>

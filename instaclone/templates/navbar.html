@@ -17,10 +17,10 @@
       <!-- Adding a search form  -->
       <div class="col-sm-4 col-md-4 navbar-right">
 
-        <form class="navbar-form" role="search" action="{% url 'welcome' %}">
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Image" name="article">
+            <input type="text" class="form-control" placeholder="Search Image" name="imagesearch">
             <div class="input-group-btn">
               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
@@ -43,10 +43,16 @@
                     <a href="{%url 'welcome'%}">Home</a>
                   </li>
                   <li>
+                    <a href="{%url 'new-post'%}">New Post</a>
+                  </li>
+                  <li>
                     <a href="/accounts/password/change">Change Password</a>
                   </li>
                   <li>
-                    <a href="{#">Profile</a>
+                    <a href="{%url 'profile'  %} ">Profile</a></li>
+                  </li>
+                  <li>
+                    <li><a href="{%url 'updateprofile'  %}">Edit Profile</a></li>
                   </li>
                   <li>
                     <a href="/logout">Logout</a>
@@ -54,9 +60,6 @@
                   {% else %}
                   <li>
                     <a class='btn btn-default' href="/accounts/login">Login</a>
-                  </li>
-                  <li>
-                    <a class='btn btn-default' href="/accounts/register">Register</a>
                   </li>
                 </ul>
               </li>
